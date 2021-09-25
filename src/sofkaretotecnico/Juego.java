@@ -22,7 +22,10 @@ public class Juego {
         this.ronda++;
     }
     
-    
+    public void sumarAcumulado(){
+        this.puntajeAcumulado = this.puntajeAcumulado+(this.ronda*100);
+        
+    }
     
     
 }

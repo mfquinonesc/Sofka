@@ -13,7 +13,7 @@ import java.util.ArrayList;
  */
 public class Opciones {
     
-    private int id;
+    private int idOpciones;
     private int idPregunta;
     private ArrayList<String> respuestas;
     private ArrayList<Boolean> atributo;
