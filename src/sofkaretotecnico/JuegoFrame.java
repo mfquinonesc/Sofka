@@ -23,9 +23,10 @@ public class JuegoFrame extends javax.swing.JFrame {
     private Jugador myjugador;
     private Pregunta preg;
     private Opciones opc;
+   
             
     public JuegoFrame() {
-        initComponents();
+        initComponents();      
         this.myjuego= new Juego();
         this.myjugador = new Jugador();
         this.jTextField5.setText(null);
@@ -75,15 +76,35 @@ public class JuegoFrame extends javax.swing.JFrame {
 
         jButton1.setText("Seleccionar");
         jButton1.setEnabled(false);
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         jButton2.setText("Seleccionar");
         jButton2.setEnabled(false);
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         jButton3.setText("Seleccionar");
         jButton3.setEnabled(false);
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
 
         jButton4.setText("Seleccionar");
         jButton4.setEnabled(false);
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
 
         jTextField1.setEditable(false);
 
@@ -213,37 +234,100 @@ public class JuegoFrame extends javax.swing.JFrame {
             this.jButton7.setEnabled(true);
             this.jTextField5.setEditable(false);
             this.jTextField5.setText("Esta jugando "+this.jTextField5.getText());
-            preg=new Pregunta ();
-            try {
-                preg.buscarPregunta(this.myjuego.getRonda());  
-                this.jButton5.setEnabled(false);
-                this.jButton6.setEnabled(true);
-                
-            } catch (SQLException ex) {
-                Logger.getLogger(JuegoFrame.class.getName()).log(Level.SEVERE, null, ex);
-            }
-           
+            this.jButton5.setEnabled(false);
+            this.jButton6.setEnabled(true);
+       
             
         }
                 
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+            this.cargarPreguntas();
+            this.mostrarPreguntas();
+            this.jButton6.setEnabled(false);
+        
+    }//GEN-LAST:event_jButton6ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+      
+        if(this.opc.getAtributo(0)==1){
+            this.myjuego.sumarAcumulado();
+            this.myjuego.siguienteRonda();           
+            this.cargarPreguntas();
+            this.mostrarPreguntas();            
+        }
+        else{
+            
+        }       
+        
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+       
+        if(this.opc.getAtributo(1)==1){
+            this.myjuego.sumarAcumulado();
+            this.myjuego.siguienteRonda();           
+            this.cargarPreguntas();
+            this.mostrarPreguntas();            
+        }
+        else{
+            
+               
+       }
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+   
+        if(this.opc.getAtributo(2)==1){
+            this.myjuego.sumarAcumulado();
+            this.myjuego.siguienteRonda();           
+            this.cargarPreguntas();
+            this.mostrarPreguntas();            
+        }
+        else{            
+             
+       }
+    }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+      
+        if(this.opc.getAtributo(3)==1){
+            this.myjuego.sumarAcumulado();
+            this.myjuego.siguienteRonda();           
+            this.cargarPreguntas();
+            this.mostrarPreguntas();            
+        }
+        else{
+            
+        }       
+      
+       
+    }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void mostrarPreguntas(){
+        this.jTextArea1.setText(preg.getEnunciado());
+        this.jTextField1.setText(opc.getRespuesta(0));
+        this.jTextField2.setText(opc.getRespuesta(1));
+        this.jTextField3.setText(opc.getRespuesta(2));
+        this.jTextField4.setText(opc.getRespuesta(3));
+        this.jLabel3.setText("TOTAL ACUMULADO: "+this.myjuego.getPuntajeAcumulado());
+        this.jLabel2.setText("RONDA: "+ this.myjuego.getRonda());
+    }
+    
+    private void cargarPreguntas(){
+        this.preg=new Pregunta ();
         this.opc = new Opciones();
-        try {           
+        try {      
+            this.preg.buscarPregunta(this.myjuego.getRonda()); 
             this.opc.consultarRespuestas(this.preg.getIdPregunta());
         } catch (SQLException ex) {
             Logger.getLogger(JuegoFrame.class.getName()).log(Level.SEVERE, null, ex);
         }
-            this.jTextArea1.setText(preg.getEnunciado());
-            this.jTextField1.setText(opc.getRespuesta(0));
-            this.jTextField2.setText(opc.getRespuesta(1));
-            this.jTextField3.setText(opc.getRespuesta(2));
-            this.jTextField4.setText(opc.getRespuesta(3));
-            
-        
-    }//GEN-LAST:event_jButton6ActionPerformed
-
+    }
+    
+    
+    
     /**
      * @param args the command line arguments
      */
