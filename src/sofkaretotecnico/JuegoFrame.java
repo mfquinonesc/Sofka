@@ -20,7 +20,7 @@ public class JuegoFrame extends javax.swing.JFrame {
      */
     
     private Juego myjuego;
-    private Jugador myjugador;
+    private Usuario myjugador;
     private Pregunta preg;
     private Opciones opc;
    
@@ -28,7 +28,7 @@ public class JuegoFrame extends javax.swing.JFrame {
     public JuegoFrame() {
         initComponents();      
         this.myjuego= new Juego();
-        this.myjugador = new Jugador();
+        this.myjugador = new Usuario();
         this.jTextField5.setText(null);
         this.jLabel2.setText("RONDA: "+ this.myjuego.getRonda());
         
@@ -62,6 +62,7 @@ public class JuegoFrame extends javax.swing.JFrame {
         jTextField5 = new javax.swing.JTextField();
         jButton7 = new javax.swing.JButton();
         jButton8 = new javax.swing.JButton();
+        jLabel4 = new javax.swing.JLabel();
 
         jButton9.setText("jButton9");
 
@@ -135,9 +136,19 @@ public class JuegoFrame extends javax.swing.JFrame {
 
         jButton7.setText("FIN DEL JUEGO FORZADO");
         jButton7.setEnabled(false);
+        jButton7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton7ActionPerformed(evt);
+            }
+        });
 
         jButton8.setText("FIN DEL JUEGO VOLUNTARIO");
         jButton8.setEnabled(false);
+        jButton8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton8ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -146,37 +157,44 @@ public class JuegoFrame extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jButton1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jTextField1))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jButton2)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jTextField2))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jButton3)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jTextField3))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jButton4)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jTextField4))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jButton5)
-                        .addGap(18, 18, 18)
-                        .addComponent(jTextField5))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel1)
-                            .addComponent(jLabel2)
-                            .addComponent(jLabel3)
-                            .addComponent(jButton6)
-                            .addComponent(jButton7)
-                            .addComponent(jButton8))
-                        .addGap(0, 206, Short.MAX_VALUE)))
-                .addContainerGap())
+                            .addComponent(jScrollPane1)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jButton1)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jTextField1))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jButton2)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jTextField2))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jButton3)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jTextField3))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jButton4)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jTextField4))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jButton5)
+                                .addGap(18, 18, 18)
+                                .addComponent(jTextField5))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel1)
+                                    .addComponent(jLabel2)
+                                    .addComponent(jLabel3)
+                                    .addComponent(jButton6)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(jButton7)
+                                        .addGap(26, 26, 26)
+                                        .addComponent(jLabel4)))
+                                .addGap(0, 0, Short.MAX_VALUE)))
+                        .addContainerGap())
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jButton8)
+                        .addGap(40, 216, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -212,7 +230,9 @@ public class JuegoFrame extends javax.swing.JFrame {
                     .addComponent(jButton4)
                     .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addComponent(jButton7)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton7)
+                    .addComponent(jLabel4))
                 .addGap(18, 18, 18)
                 .addComponent(jButton8)
                 .addContainerGap(34, Short.MAX_VALUE))
@@ -251,59 +271,92 @@ public class JuegoFrame extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
       
-        if(this.opc.getAtributo(0)==1){
+        if(this.opc.getAtributo(0)==1  && this.myjuego.getRonda()<5 ){
             this.myjuego.sumarAcumulado();
             this.myjuego.siguienteRonda();           
             this.cargarPreguntas();
             this.mostrarPreguntas();            
         }
         else{
-            
+            try {
+                this.guardarJugador();
+            } catch (SQLException ex) {
+                Logger.getLogger(JuegoFrame.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }       
         
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
        
-        if(this.opc.getAtributo(1)==1){
+        if(this.opc.getAtributo(1)==1  && this.myjuego.getRonda()<5){
             this.myjuego.sumarAcumulado();
             this.myjuego.siguienteRonda();           
             this.cargarPreguntas();
             this.mostrarPreguntas();            
         }
         else{
-            
-               
+            try {
+                this.guardarJugador();
+            } catch (SQLException ex) {
+                Logger.getLogger(JuegoFrame.class.getName()).log(Level.SEVERE, null, ex);
+            }               
        }
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
    
-        if(this.opc.getAtributo(2)==1){
+        if(this.opc.getAtributo(2)==1 && this.myjuego.getRonda()<5){
             this.myjuego.sumarAcumulado();
             this.myjuego.siguienteRonda();           
             this.cargarPreguntas();
             this.mostrarPreguntas();            
         }
         else{            
-             
+             try {
+                this.guardarJugador();
+            } catch (SQLException ex) {
+                Logger.getLogger(JuegoFrame.class.getName()).log(Level.SEVERE, null, ex);
+            }
        }
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
       
-        if(this.opc.getAtributo(3)==1){
+        if(this.opc.getAtributo(3)==1 && this.myjuego.getRonda()<5){
             this.myjuego.sumarAcumulado();
             this.myjuego.siguienteRonda();           
             this.cargarPreguntas();
             this.mostrarPreguntas();            
         }
         else{
-            
+            try {
+                this.guardarJugador();
+            } catch (SQLException ex) {
+                Logger.getLogger(JuegoFrame.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }       
       
        
     }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
+        // TODO add your handling code here:
+        try {
+                this.guardarJugador();
+            } catch (SQLException ex) {
+                Logger.getLogger(JuegoFrame.class.getName()).log(Level.SEVERE, null, ex);
+            }
+    }//GEN-LAST:event_jButton7ActionPerformed
+
+    private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
+        // TODO add your handling code here:
+        try {
+                this.guardarJugador();
+            } catch (SQLException ex) {
+                Logger.getLogger(JuegoFrame.class.getName()).log(Level.SEVERE, null, ex);
+            }
+    }//GEN-LAST:event_jButton8ActionPerformed
 
     private void mostrarPreguntas(){
         this.jTextArea1.setText(preg.getEnunciado());
@@ -326,6 +379,22 @@ public class JuegoFrame extends javax.swing.JFrame {
         }
     }
     
+    
+    private void guardarJugador() throws SQLException{
+        this.myjugador.setRonda(this.myjuego.getRonda());
+        this.myjugador.setPuntajeAcumulado(this.myjuego.getPuntajeAcumulado());
+        this.myjugador.guardar();   
+        this.jButton1.setEnabled(false);
+        this.jButton2.setEnabled(false);
+        this.jButton3.setEnabled(false);
+        this.jButton4.setEnabled(false);
+        this.jButton5.setEnabled(false);
+        this.jButton6.setEnabled(false);
+        this.jButton7.setEnabled(false);
+        this.jButton8.setEnabled(false);
+        this.jButton9.setEnabled(false);
+        this.jLabel4.setText("FIN DEL JUEGO; SE GUARDARON SUS DATOS");
+    }
     
     
     /**
@@ -376,6 +445,7 @@ public class JuegoFrame extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextArea jTextArea1;
     private javax.swing.JTextField jTextField1;

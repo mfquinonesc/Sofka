@@ -11,19 +11,19 @@ import java.sql.SQLException;
  *
  * @author manue
  */
-public class Jugador {
+public class Usuario {
 
     private int id;
     private String nombre;
     private int puntajeAcumulado;
     private int ronda;
   
-    public Jugador (){
+    public Usuario (){
         this("",0,0);
     }
     
     
-    public Jugador(String nomb, int puntaje, int rond){
+    public Usuario(String nomb, int puntaje, int rond){
         this.nombre= nomb;
         this.puntajeAcumulado = puntaje;
         this.ronda=rond;

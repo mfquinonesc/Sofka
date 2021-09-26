@@ -37,8 +37,7 @@ public class Conexion {
             stmt = conn.createStatement();
             stmt.executeUpdate(senteciaSql);
             stmt.close();
-            conn.close();
-            System.out.println("Ok");
+            conn.close();            
         }     
          
     }
