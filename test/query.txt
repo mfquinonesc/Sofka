@@ -1,0 +1,58 @@
+DROP TABLE jugador;
+DROP TABLE pregunta;
+--DROP TABLE opciones;
+
+CREATE TABLE jugador (id SERIAL PRIMARY KEY,
+					  nombre VARCHAR(20),
+					  puntaje INTEGER,
+					  ronda INTEGER
+					 );
+CREATE TABLE pregunta (id SERIAL PRIMARY KEY,
+   enunciado VARCHAR(300),
+  categoria INTEGER  
+ );
+ 
+-- CREATE TABLE opciones (id SERIAL PRIMARY KEY,
+-- 						id_pregunta INTEGER NOT NULL,
+-- 					   	respuesta1 VARCHAR(50),
+-- 						respuesta2 VARCHAR(50),
+-- 						respuesta3 VARCHAR(50),
+-- 						respuesta4 VARCHAR(50),
+-- 					    atributo1 boolean,
+-- 						atributo2 boolean,
+-- 						atributo3 boolean,
+-- 						atributo4 boolean
+-- 					   );
+					   
+INSERT INTO jugador (nombre,puntaje,ronda)VALUES ('Juan Lopez',100,1);	
+INSERT INTO jugador (nombre,puntaje,ronda)VALUES ('Pedro Rodriguez',200,2);	
+INSERT INTO jugador (nombre,puntaje,ronda)VALUES ('Camilo Leguizamo',300,3);
+
+INSERT INTO pregunta (enunciado,categoria) VALUES ('El agua moja?',1);
+INSERT INTO pregunta (enunciado,categoria) VALUES ('1+1 = 1?',2);
+INSERT INTO pregunta (enunciado,categoria) VALUES ('3-9=0?',4);
+INSERT INTO pregunta (enunciado,categoria) VALUES ('sdfgh',1);
+INSERT INTO pregunta (enunciado,categoria) VALUES ('fghkjhgj',2);
+INSERT INTO pregunta (enunciado,categoria) VALUES ('bvcnbvnb',3);
+INSERT INTO pregunta (enunciado,categoria) VALUES ('rwtrettytrytu',1);
+INSERT INTO pregunta (enunciado,categoria) VALUES ('yrytuyutyu',2);
+INSERT INTO pregunta (enunciado,categoria) VALUES ('bcnbvnbmbmb',4);
+INSERT INTO pregunta (enunciado,categoria) VALUES ('rwdgfgrytu',1);
+INSERT INTO pregunta (enunciado,categoria) VALUES ('yrytuyutyu',5);
+INSERT INTO pregunta (enunciado,categoria) VALUES ('bcnbvnbmbmb',4);
+
+
+
+
+INSERT INTO opciones (id_pregunta, respuesta1, respuesta2, respuesta3, respuesta4,
+						atributo1 , atributo2, atributo3, atributo4) 
+						VALUES (1,'si','no se','tal vez','no',true,FALSE,FALSE,FALSE);
+
+--SELECT * FROM jugador WHERE id=2;
+--SELECT * FROM pregunta WHERE id = 2;
+
+--SELECT * FROM pregunta WHERE id = (SELECT id FROM pregunta WHERE categoria = 4 ORDER BY RANDOM() LIMIT 1);
+SELECT * FROM opciones WHERE id_pregunta = 2;
+
+
+

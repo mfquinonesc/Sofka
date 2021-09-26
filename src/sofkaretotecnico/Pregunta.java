@@ -46,12 +46,6 @@ public class Pregunta {
         this.enunciado=conec.consultarSql("SELECT * FROM pregunta WHERE id = "+
                 this.idPregunta +";", 2);
         this.categoria=categ;
-        System.out.println(this.idPregunta);
-        System.out.println(this.enunciado);
-        System.out.println(this.categoria);
-        
-        
-        
     }
     
     
