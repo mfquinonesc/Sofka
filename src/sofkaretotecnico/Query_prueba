@@ -1,0 +1,154 @@
+
+DROP TABLE jugador;
+DROP TABLE pregunta;
+DROP TABLE opciones;
+
+CREATE TABLE jugador (id SERIAL PRIMARY KEY,
+					  nombre VARCHAR(20),
+					  puntaje INTEGER,
+					  ronda INTEGER
+					 );
+CREATE TABLE pregunta (id SERIAL PRIMARY KEY,
+   enunciado VARCHAR(300),
+  categoria INTEGER  
+ );
+ 
+CREATE TABLE opciones (id SERIAL PRIMARY KEY,
+						id_pregunta INTEGER NOT NULL,
+					   	respuesta1 VARCHAR(50),
+						respuesta2 VARCHAR(50),
+						respuesta3 VARCHAR(50),
+						respuesta4 VARCHAR(50),
+					    atributo1 INTEGER,
+						atributo2 INTEGER,
+						atributo3 INTEGER,
+						atributo4 INTEGER
+					   );
+					   
+
+INSERT INTO jugador (nombre,puntaje,ronda)VALUES ('Jugador Apelligo0',300 , 3);
+INSERT INTO jugador (nombre,puntaje,ronda)VALUES ('Jugador Apelligo1',400 , 4);
+INSERT INTO jugador (nombre,puntaje,ronda)VALUES ('Jugador Apelligo2',400 , 4);
+INSERT INTO jugador (nombre,puntaje,ronda)VALUES ('Jugador Apelligo3',300 , 3);
+INSERT INTO jugador (nombre,puntaje,ronda)VALUES ('Jugador Apelligo4',300 , 3);
+INSERT INTO jugador (nombre,puntaje,ronda)VALUES ('Jugador Apelligo5',300 , 3);
+INSERT INTO jugador (nombre,puntaje,ronda)VALUES ('Jugador Apelligo6',0 , 0);
+INSERT INTO jugador (nombre,puntaje,ronda)VALUES ('Jugador Apelligo7',300 , 3);
+INSERT INTO jugador (nombre,puntaje,ronda)VALUES ('Jugador Apelligo8',100 , 1);
+INSERT INTO jugador (nombre,puntaje,ronda)VALUES ('Jugador Apelligo9',0 , 0);
+INSERT INTO jugador (nombre,puntaje,ronda)VALUES ('Jugador Apelligo10',200 , 2);
+INSERT INTO jugador (nombre,puntaje,ronda)VALUES ('Jugador Apelligo11',400 , 4);
+INSERT INTO jugador (nombre,puntaje,ronda)VALUES ('Jugador Apelligo12',0 , 0);
+INSERT INTO jugador (nombre,puntaje,ronda)VALUES ('Jugador Apelligo13',300 , 3);
+INSERT INTO jugador (nombre,puntaje,ronda)VALUES ('Jugador Apelligo14',200 , 2);
+INSERT INTO jugador (nombre,puntaje,ronda)VALUES ('Jugador Apelligo15',200 , 2);
+INSERT INTO jugador (nombre,puntaje,ronda)VALUES ('Jugador Apelligo16',200 , 2);
+INSERT INTO jugador (nombre,puntaje,ronda)VALUES ('Jugador Apelligo17',300 , 3);
+INSERT INTO jugador (nombre,puntaje,ronda)VALUES ('Jugador Apelligo18',400 , 4);
+INSERT INTO jugador (nombre,puntaje,ronda)VALUES ('Jugador Apelligo19',200 , 2);
+
+ 
+
+INSERT INTO pregunta (enunciado,categoria) VALUES ('pregunta#0',2);
+INSERT INTO pregunta (enunciado,categoria) VALUES ('pregunta#1',4);
+INSERT INTO pregunta (enunciado,categoria) VALUES ('pregunta#2',2);
+INSERT INTO pregunta (enunciado,categoria) VALUES ('pregunta#3',2);
+INSERT INTO pregunta (enunciado,categoria) VALUES ('pregunta#4',5);
+INSERT INTO pregunta (enunciado,categoria) VALUES ('pregunta#5',3);
+INSERT INTO pregunta (enunciado,categoria) VALUES ('pregunta#6',5);
+INSERT INTO pregunta (enunciado,categoria) VALUES ('pregunta#7',5);
+INSERT INTO pregunta (enunciado,categoria) VALUES ('pregunta#8',4);
+INSERT INTO pregunta (enunciado,categoria) VALUES ('pregunta#9',5);
+INSERT INTO pregunta (enunciado,categoria) VALUES ('pregunta#10',4);
+INSERT INTO pregunta (enunciado,categoria) VALUES ('pregunta#11',3);
+INSERT INTO pregunta (enunciado,categoria) VALUES ('pregunta#12',5);
+INSERT INTO pregunta (enunciado,categoria) VALUES ('pregunta#13',3);
+INSERT INTO pregunta (enunciado,categoria) VALUES ('pregunta#14',3);
+INSERT INTO pregunta (enunciado,categoria) VALUES ('pregunta#15',1);
+INSERT INTO pregunta (enunciado,categoria) VALUES ('pregunta#16',2);
+INSERT INTO pregunta (enunciado,categoria) VALUES ('pregunta#17',3);
+INSERT INTO pregunta (enunciado,categoria) VALUES ('pregunta#18',4);
+INSERT INTO pregunta (enunciado,categoria) VALUES ('pregunta#19',2);
+INSERT INTO pregunta (enunciado,categoria) VALUES ('pregunta#20',5);
+INSERT INTO pregunta (enunciado,categoria) VALUES ('pregunta#21',3);
+INSERT INTO pregunta (enunciado,categoria) VALUES ('pregunta#22',2);
+INSERT INTO pregunta (enunciado,categoria) VALUES ('pregunta#23',5);
+INSERT INTO pregunta (enunciado,categoria) VALUES ('pregunta#24',1);
+INSERT INTO pregunta (enunciado,categoria) VALUES ('pregunta#25',3);
+INSERT INTO pregunta (enunciado,categoria) VALUES ('pregunta#26',1);
+INSERT INTO pregunta (enunciado,categoria) VALUES ('pregunta#27',2);
+INSERT INTO pregunta (enunciado,categoria) VALUES ('pregunta#28',1);
+INSERT INTO pregunta (enunciado,categoria) VALUES ('pregunta#29',1);
+INSERT INTO pregunta (enunciado,categoria) VALUES ('pregunta#30',4);
+INSERT INTO pregunta (enunciado,categoria) VALUES ('pregunta#31',2);
+INSERT INTO pregunta (enunciado,categoria) VALUES ('pregunta#32',4);
+INSERT INTO pregunta (enunciado,categoria) VALUES ('pregunta#33',3);
+INSERT INTO pregunta (enunciado,categoria) VALUES ('pregunta#34',3);
+INSERT INTO pregunta (enunciado,categoria) VALUES ('pregunta#35',2);
+INSERT INTO pregunta (enunciado,categoria) VALUES ('pregunta#36',2);
+INSERT INTO pregunta (enunciado,categoria) VALUES ('pregunta#37',5);
+INSERT INTO pregunta (enunciado,categoria) VALUES ('pregunta#38',2);
+INSERT INTO pregunta (enunciado,categoria) VALUES ('pregunta#39',3);
+INSERT INTO pregunta (enunciado,categoria) VALUES ('pregunta#40',5);
+INSERT INTO pregunta (enunciado,categoria) VALUES ('pregunta#41',2);
+INSERT INTO pregunta (enunciado,categoria) VALUES ('pregunta#42',1);
+INSERT INTO pregunta (enunciado,categoria) VALUES ('pregunta#43',1);
+INSERT INTO pregunta (enunciado,categoria) VALUES ('pregunta#44',5);
+INSERT INTO pregunta (enunciado,categoria) VALUES ('pregunta#45',2);
+INSERT INTO pregunta (enunciado,categoria) VALUES ('pregunta#46',3);
+INSERT INTO pregunta (enunciado,categoria) VALUES ('pregunta#47',5);
+INSERT INTO pregunta (enunciado,categoria) VALUES ('pregunta#48',3);
+INSERT INTO pregunta (enunciado,categoria) VALUES ('pregunta#49',1);
+
+ 
+
+INSERT INTO opciones (id_pregunta, respuesta1, respuesta2, respuesta3, respuesta4, atributo1 , atributo2, atributo3, atributo4) VALUES (1, 'respuesta#0' , 'respuesta#1' , 'respuesta#2' , 'respuesta#3' ,0,0,1,0);
+INSERT INTO opciones (id_pregunta, respuesta1, respuesta2, respuesta3, respuesta4, atributo1 , atributo2, atributo3, atributo4) VALUES (2, 'respuesta#4' , 'respuesta#5' , 'respuesta#6' , 'respuesta#7' ,0,0,1,0);
+INSERT INTO opciones (id_pregunta, respuesta1, respuesta2, respuesta3, respuesta4, atributo1 , atributo2, atributo3, atributo4) VALUES (3, 'respuesta#8' , 'respuesta#9' , 'respuesta#10' , 'respuesta#11' ,0,0,1,0);
+INSERT INTO opciones (id_pregunta, respuesta1, respuesta2, respuesta3, respuesta4, atributo1 , atributo2, atributo3, atributo4) VALUES (4, 'respuesta#12' , 'respuesta#13' , 'respuesta#14' , 'respuesta#15' ,1,0,0,0);
+INSERT INTO opciones (id_pregunta, respuesta1, respuesta2, respuesta3, respuesta4, atributo1 , atributo2, atributo3, atributo4) VALUES (5, 'respuesta#16' , 'respuesta#17' , 'respuesta#18' , 'respuesta#19' ,0,0,1,0);
+INSERT INTO opciones (id_pregunta, respuesta1, respuesta2, respuesta3, respuesta4, atributo1 , atributo2, atributo3, atributo4) VALUES (6, 'respuesta#20' , 'respuesta#21' , 'respuesta#22' , 'respuesta#23' ,1,0,0,0);
+INSERT INTO opciones (id_pregunta, respuesta1, respuesta2, respuesta3, respuesta4, atributo1 , atributo2, atributo3, atributo4) VALUES (7, 'respuesta#24' , 'respuesta#25' , 'respuesta#26' , 'respuesta#27' ,0,0,1,0);
+INSERT INTO opciones (id_pregunta, respuesta1, respuesta2, respuesta3, respuesta4, atributo1 , atributo2, atributo3, atributo4) VALUES (8, 'respuesta#28' , 'respuesta#29' , 'respuesta#30' , 'respuesta#31' ,1,0,0,0);
+INSERT INTO opciones (id_pregunta, respuesta1, respuesta2, respuesta3, respuesta4, atributo1 , atributo2, atributo3, atributo4) VALUES (9, 'respuesta#32' , 'respuesta#33' , 'respuesta#34' , 'respuesta#35' ,0,0,1,0);
+INSERT INTO opciones (id_pregunta, respuesta1, respuesta2, respuesta3, respuesta4, atributo1 , atributo2, atributo3, atributo4) VALUES (10, 'respuesta#36' , 'respuesta#37' , 'respuesta#38' , 'respuesta#39' ,0,0,1,0);
+INSERT INTO opciones (id_pregunta, respuesta1, respuesta2, respuesta3, respuesta4, atributo1 , atributo2, atributo3, atributo4) VALUES (11, 'respuesta#40' , 'respuesta#41' , 'respuesta#42' , 'respuesta#43' ,0,0,1,0);
+INSERT INTO opciones (id_pregunta, respuesta1, respuesta2, respuesta3, respuesta4, atributo1 , atributo2, atributo3, atributo4) VALUES (12, 'respuesta#44' , 'respuesta#45' , 'respuesta#46' , 'respuesta#47' ,0,0,0,1);
+INSERT INTO opciones (id_pregunta, respuesta1, respuesta2, respuesta3, respuesta4, atributo1 , atributo2, atributo3, atributo4) VALUES (13, 'respuesta#48' , 'respuesta#49' , 'respuesta#50' , 'respuesta#51' ,0,0,1,0);
+INSERT INTO opciones (id_pregunta, respuesta1, respuesta2, respuesta3, respuesta4, atributo1 , atributo2, atributo3, atributo4) VALUES (14, 'respuesta#52' , 'respuesta#53' , 'respuesta#54' , 'respuesta#55' ,0,0,0,1);
+INSERT INTO opciones (id_pregunta, respuesta1, respuesta2, respuesta3, respuesta4, atributo1 , atributo2, atributo3, atributo4) VALUES (15, 'respuesta#56' , 'respuesta#57' , 'respuesta#58' , 'respuesta#59' ,0,0,1,0);
+INSERT INTO opciones (id_pregunta, respuesta1, respuesta2, respuesta3, respuesta4, atributo1 , atributo2, atributo3, atributo4) VALUES (16, 'respuesta#60' , 'respuesta#61' , 'respuesta#62' , 'respuesta#63' ,1,0,0,0);
+INSERT INTO opciones (id_pregunta, respuesta1, respuesta2, respuesta3, respuesta4, atributo1 , atributo2, atributo3, atributo4) VALUES (17, 'respuesta#64' , 'respuesta#65' , 'respuesta#66' , 'respuesta#67' ,0,0,1,0);
+INSERT INTO opciones (id_pregunta, respuesta1, respuesta2, respuesta3, respuesta4, atributo1 , atributo2, atributo3, atributo4) VALUES (18, 'respuesta#68' , 'respuesta#69' , 'respuesta#70' , 'respuesta#71' ,0,0,0,1);
+INSERT INTO opciones (id_pregunta, respuesta1, respuesta2, respuesta3, respuesta4, atributo1 , atributo2, atributo3, atributo4) VALUES (19, 'respuesta#72' , 'respuesta#73' , 'respuesta#74' , 'respuesta#75' ,0,0,0,1);
+INSERT INTO opciones (id_pregunta, respuesta1, respuesta2, respuesta3, respuesta4, atributo1 , atributo2, atributo3, atributo4) VALUES (20, 'respuesta#76' , 'respuesta#77' , 'respuesta#78' , 'respuesta#79' ,1,0,0,0);
+INSERT INTO opciones (id_pregunta, respuesta1, respuesta2, respuesta3, respuesta4, atributo1 , atributo2, atributo3, atributo4) VALUES (21, 'respuesta#80' , 'respuesta#81' , 'respuesta#82' , 'respuesta#83' ,0,0,1,0);
+INSERT INTO opciones (id_pregunta, respuesta1, respuesta2, respuesta3, respuesta4, atributo1 , atributo2, atributo3, atributo4) VALUES (22, 'respuesta#84' , 'respuesta#85' , 'respuesta#86' , 'respuesta#87' ,0,0,1,0);
+INSERT INTO opciones (id_pregunta, respuesta1, respuesta2, respuesta3, respuesta4, atributo1 , atributo2, atributo3, atributo4) VALUES (23, 'respuesta#88' , 'respuesta#89' , 'respuesta#90' , 'respuesta#91' ,0,0,1,0);
+INSERT INTO opciones (id_pregunta, respuesta1, respuesta2, respuesta3, respuesta4, atributo1 , atributo2, atributo3, atributo4) VALUES (24, 'respuesta#92' , 'respuesta#93' , 'respuesta#94' , 'respuesta#95' ,1,0,0,0);
+INSERT INTO opciones (id_pregunta, respuesta1, respuesta2, respuesta3, respuesta4, atributo1 , atributo2, atributo3, atributo4) VALUES (25, 'respuesta#96' , 'respuesta#97' , 'respuesta#98' , 'respuesta#99' ,1,0,0,0);
+INSERT INTO opciones (id_pregunta, respuesta1, respuesta2, respuesta3, respuesta4, atributo1 , atributo2, atributo3, atributo4) VALUES (26, 'respuesta#100' , 'respuesta#101' , 'respuesta#102' , 'respuesta#103' ,0,0,0,1);
+INSERT INTO opciones (id_pregunta, respuesta1, respuesta2, respuesta3, respuesta4, atributo1 , atributo2, atributo3, atributo4) VALUES (27, 'respuesta#104' , 'respuesta#105' , 'respuesta#106' , 'respuesta#107' ,0,0,1,0);
+INSERT INTO opciones (id_pregunta, respuesta1, respuesta2, respuesta3, respuesta4, atributo1 , atributo2, atributo3, atributo4) VALUES (28, 'respuesta#108' , 'respuesta#109' , 'respuesta#110' , 'respuesta#111' ,0,0,0,1);
+INSERT INTO opciones (id_pregunta, respuesta1, respuesta2, respuesta3, respuesta4, atributo1 , atributo2, atributo3, atributo4) VALUES (29, 'respuesta#112' , 'respuesta#113' , 'respuesta#114' , 'respuesta#115' ,0,0,1,0);
+INSERT INTO opciones (id_pregunta, respuesta1, respuesta2, respuesta3, respuesta4, atributo1 , atributo2, atributo3, atributo4) VALUES (30, 'respuesta#116' , 'respuesta#117' , 'respuesta#118' , 'respuesta#119' ,0,0,0,1);
+INSERT INTO opciones (id_pregunta, respuesta1, respuesta2, respuesta3, respuesta4, atributo1 , atributo2, atributo3, atributo4) VALUES (31, 'respuesta#120' , 'respuesta#121' , 'respuesta#122' , 'respuesta#123' ,0,0,1,0);
+INSERT INTO opciones (id_pregunta, respuesta1, respuesta2, respuesta3, respuesta4, atributo1 , atributo2, atributo3, atributo4) VALUES (32, 'respuesta#124' , 'respuesta#125' , 'respuesta#126' , 'respuesta#127' ,0,0,0,1);
+INSERT INTO opciones (id_pregunta, respuesta1, respuesta2, respuesta3, respuesta4, atributo1 , atributo2, atributo3, atributo4) VALUES (33, 'respuesta#128' , 'respuesta#129' , 'respuesta#130' , 'respuesta#131' ,0,0,0,1);
+INSERT INTO opciones (id_pregunta, respuesta1, respuesta2, respuesta3, respuesta4, atributo1 , atributo2, atributo3, atributo4) VALUES (34, 'respuesta#132' , 'respuesta#133' , 'respuesta#134' , 'respuesta#135' ,0,0,1,0);
+INSERT INTO opciones (id_pregunta, respuesta1, respuesta2, respuesta3, respuesta4, atributo1 , atributo2, atributo3, atributo4) VALUES (35, 'respuesta#136' , 'respuesta#137' , 'respuesta#138' , 'respuesta#139' ,0,0,1,0);
+INSERT INTO opciones (id_pregunta, respuesta1, respuesta2, respuesta3, respuesta4, atributo1 , atributo2, atributo3, atributo4) VALUES (36, 'respuesta#140' , 'respuesta#141' , 'respuesta#142' , 'respuesta#143' ,0,0,1,0);
+INSERT INTO opciones (id_pregunta, respuesta1, respuesta2, respuesta3, respuesta4, atributo1 , atributo2, atributo3, atributo4) VALUES (37, 'respuesta#144' , 'respuesta#145' , 'respuesta#146' , 'respuesta#147' ,0,0,1,0);
+INSERT INTO opciones (id_pregunta, respuesta1, respuesta2, respuesta3, respuesta4, atributo1 , atributo2, atributo3, atributo4) VALUES (38, 'respuesta#148' , 'respuesta#149' , 'respuesta#150' , 'respuesta#151' ,1,0,0,0);
+INSERT INTO opciones (id_pregunta, respuesta1, respuesta2, respuesta3, respuesta4, atributo1 , atributo2, atributo3, atributo4) VALUES (39, 'respuesta#152' , 'respuesta#153' , 'respuesta#154' , 'respuesta#155' ,1,0,0,0);
+INSERT INTO opciones (id_pregunta, respuesta1, respuesta2, respuesta3, respuesta4, atributo1 , atributo2, atributo3, atributo4) VALUES (40, 'respuesta#156' , 'respuesta#157' , 'respuesta#158' , 'respuesta#159' ,0,0,1,0);
+INSERT INTO opciones (id_pregunta, respuesta1, respuesta2, respuesta3, respuesta4, atributo1 , atributo2, atributo3, atributo4) VALUES (41, 'respuesta#160' , 'respuesta#161' , 'respuesta#162' , 'respuesta#163' ,0,0,0,1);
+INSERT INTO opciones (id_pregunta, respuesta1, respuesta2, respuesta3, respuesta4, atributo1 , atributo2, atributo3, atributo4) VALUES (42, 'respuesta#164' , 'respuesta#165' , 'respuesta#166' , 'respuesta#167' ,1,0,0,0);
+INSERT INTO opciones (id_pregunta, respuesta1, respuesta2, respuesta3, respuesta4, atributo1 , atributo2, atributo3, atributo4) VALUES (43, 'respuesta#168' , 'respuesta#169' , 'respuesta#170' , 'respuesta#171' ,0,0,1,0);
+INSERT INTO opciones (id_pregunta, respuesta1, respuesta2, respuesta3, respuesta4, atributo1 , atributo2, atributo3, atributo4) VALUES (44, 'respuesta#172' , 'respuesta#173' , 'respuesta#174' , 'respuesta#175' ,0,0,1,0);
+INSERT INTO opciones (id_pregunta, respuesta1, respuesta2, respuesta3, respuesta4, atributo1 , atributo2, atributo3, atributo4) VALUES (45, 'respuesta#176' , 'respuesta#177' , 'respuesta#178' , 'respuesta#179' ,1,0,0,0);
+INSERT INTO opciones (id_pregunta, respuesta1, respuesta2, respuesta3, respuesta4, atributo1 , atributo2, atributo3, atributo4) VALUES (46, 'respuesta#180' , 'respuesta#181' , 'respuesta#182' , 'respuesta#183' ,1,0,0,0);
+INSERT INTO opciones (id_pregunta, respuesta1, respuesta2, respuesta3, respuesta4, atributo1 , atributo2, atributo3, atributo4) VALUES (47, 'respuesta#184' , 'respuesta#185' , 'respuesta#186' , 'respuesta#187' ,0,0,1,0);
+INSERT INTO opciones (id_pregunta, respuesta1, respuesta2, respuesta3, respuesta4, atributo1 , atributo2, atributo3, atributo4) VALUES (48, 'respuesta#188' , 'respuesta#189' , 'respuesta#190' , 'respuesta#191' ,0,0,0,1);
+INSERT INTO opciones (id_pregunta, respuesta1, respuesta2, respuesta3, respuesta4, atributo1 , atributo2, atributo3, atributo4) VALUES (49, 'respuesta#192' , 'respuesta#193' , 'respuesta#194' , 'respuesta#195' ,0,0,0,1);
+INSERT INTO opciones (id_pregunta, respuesta1, respuesta2, respuesta3, respuesta4, atributo1 , atributo2, atributo3, atributo4) VALUES (50, 'respuesta#196' , 'respuesta#197' , 'respuesta#198' , 'respuesta#199' ,1,0,0,0);

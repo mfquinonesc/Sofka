@@ -6,6 +6,7 @@
 package sofkaretotecnico;
 
 import java.sql.SQLException;
+import java.util.Random;
 import javax.swing.JFrame;
 
 /**
@@ -21,6 +22,6 @@ public class SofkaRetoTecnico {
         
         SetupFrame form=new SetupFrame();
         form.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        form.setVisible(true);
+        form.setVisible(true); 
     }
 }

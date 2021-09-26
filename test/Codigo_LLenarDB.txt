@@ -1,0 +1,87 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package sofkaretotecnico;
+
+import java.sql.SQLException;
+import java.util.Random;
+import javax.swing.JFrame;
+
+/**
+ *
+ * @author manue
+ */
+public class SofkaRetoTecnico {
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) throws SQLException {        
+        
+
+        Random rand =new Random();
+        int num;
+       
+        for (int i =0;i<20;i++){
+            num = rand.nextInt(5);
+             String str="INSERT INTO jugador (nombre,puntaje,ronda)VALUES ('Jugador Apelligo"+
+                i+"',"+num*100+" , "+ num+");";
+             System.out.println(str);
+        }
+        System.out.println("\n \n");
+        for (int i =0;i<50;i++){
+            num = rand.nextInt(5)+1;
+             String str="INSERT INTO pregunta (enunciado,categoria) VALUES ('pregunta#"+i+"',"+num+");";
+             System.out.println(str);
+        }
+        System.out.println("\n \n");
+        //INSERT INTO opciones (id_pregunta, respuesta1, respuesta2, respuesta3, respuesta4, atributo1 , atributo2, atributo3, atributo4) VALUES (1,'si','no se','tal vez','no',1,0,0,0);
+        int counter=0;
+        int num1;
+        int num2; 
+        int num3;
+        int num4;
+        Random rand1 =new Random();
+        for (int i =0;i<50;i++){
+            int val= rand1.nextInt(3);
+            num = rand.nextInt(5)+1;
+            if(((0+val)%4)>0){
+                num1=0;
+            }
+            else{
+                num1=1;
+            }
+            if(((1+val)%4)>0){
+                num2=0;
+            }
+            else{
+                num2=1;
+            }
+            if(((2+val)%4)>0){
+                num3=0;
+            }
+            else{
+                num3=1;
+            }
+            if(((3+val)%4)>0){
+                num4=0;
+            }
+            else{
+                num4=1;
+            }
+      
+            String str="INSERT INTO opciones (id_pregunta, respuesta1, respuesta2, respuesta3, respuesta4, atributo1 , atributo2, atributo3, atributo4) VALUES ("+
+                    (i+1)+", 'respuesta#"+(counter++)+"' , 'respuesta#"+
+                    (counter++)+"' , 'respuesta#"+(counter++)+"' , 'respuesta#"
+                    +(counter++)+"' ,"+num1+","+num2+","+num3+","+num4+");";
+            
+      
+          
+            System.out.println(str);
+        }
+       
+    }
+}
+
