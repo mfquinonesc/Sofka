@@ -17,6 +17,11 @@ public class Jugador {
     private String nombre;
     private int puntajeAcumulado;
     private int ronda;
+  
+    public Jugador (){
+        this("",0,0);
+    }
+    
     
     public Jugador(String nomb, int puntaje, int rond){
         this.nombre= nomb;

@@ -36,6 +36,7 @@ public class Opciones {
             conec.crearConexion();
             this.respuestas.add(conec.consultarSql(sentSql,i+3));     
         }
+        this.atributo.clear();
         for (int i =0; i<4;i++){
             conec = new Conexion();
             conec.crearConexion();  
@@ -91,6 +92,15 @@ public class Opciones {
     
     public void setAtributo(int correcto) {
       if(correcto>0){
+           this.atributo.add(1);
+      }
+      else{
+          this.atributo.add(0);
+      }       
+    }
+    
+    public void setAtributo(boolean correcto) {
+      if(correcto){
            this.atributo.add(1);
       }
       else{

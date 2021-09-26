@@ -10,20 +10,36 @@ package sofkaretotecnico;
  * @author manue
  */
 public class Juego {
+
+    public int getRonda() {
+        return ronda;
+    }
+
+    public void setRonda(int ronda) {
+        this.ronda = ronda;
+    }
+
+    public int getPuntajeAcumulado() {
+        return puntajeAcumulado;
+    }
+
+    public void setPuntajeAcumulado(int puntajeAcumulado) {
+        this.puntajeAcumulado = puntajeAcumulado;
+    }
     private int ronda;
     private int puntajeAcumulado;
-    private int numeroPregPorNivel;
+    
     
     public Juego(){
         this.ronda=1;
     }    
     
     public void siguienteRonda(){
-        this.ronda++;
+        this.setRonda(this.getRonda() + 1);
     }
     
     public void sumarAcumulado(){
-        this.puntajeAcumulado = this.puntajeAcumulado+(this.ronda*100);
+        this.setPuntajeAcumulado(this.getPuntajeAcumulado() + (this.getRonda() * 100));
         
     }
     

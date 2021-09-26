@@ -5,6 +5,10 @@
  */
 package sofkaretotecnico;
 
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 /**
  *
  * @author manue
@@ -14,8 +18,19 @@ public class JuegoFrame extends javax.swing.JFrame {
     /**
      * Creates new form JuegoFrame
      */
+    
+    private Juego myjuego;
+    private Jugador myjugador;
+    private Pregunta preg;
+    private Opciones opc;
+            
     public JuegoFrame() {
         initComponents();
+        this.myjuego= new Juego();
+        this.myjugador = new Jugador();
+        this.jTextField5.setText(null);
+        this.jLabel2.setText("RONDA: "+ this.myjuego.getRonda());
+        
     }
 
     /**
@@ -27,6 +42,7 @@ public class JuegoFrame extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jButton9 = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTextArea1 = new javax.swing.JTextArea();
         jLabel1 = new javax.swing.JLabel();
@@ -46,8 +62,11 @@ public class JuegoFrame extends javax.swing.JFrame {
         jButton7 = new javax.swing.JButton();
         jButton8 = new javax.swing.JButton();
 
+        jButton9.setText("jButton9");
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        jTextArea1.setEditable(false);
         jTextArea1.setColumns(20);
         jTextArea1.setRows(5);
         jScrollPane1.setViewportView(jTextArea1);
@@ -55,24 +74,49 @@ public class JuegoFrame extends javax.swing.JFrame {
         jLabel1.setText("Pregunta");
 
         jButton1.setText("Seleccionar");
+        jButton1.setEnabled(false);
 
         jButton2.setText("Seleccionar");
+        jButton2.setEnabled(false);
 
         jButton3.setText("Seleccionar");
+        jButton3.setEnabled(false);
 
         jButton4.setText("Seleccionar");
+        jButton4.setEnabled(false);
+
+        jTextField1.setEditable(false);
+
+        jTextField2.setEditable(false);
+
+        jTextField3.setEditable(false);
+
+        jTextField4.setEditable(false);
 
         jLabel2.setText("RONDA:");
 
         jLabel3.setText("TOTAL ACUMULADO:");
 
         jButton5.setText("LOG JUGADOR ");
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton5ActionPerformed(evt);
+            }
+        });
 
         jButton6.setText("INICIO DEL JUEGO");
+        jButton6.setEnabled(false);
+        jButton6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton6ActionPerformed(evt);
+            }
+        });
 
         jButton7.setText("FIN DEL JUEGO FORZADO");
+        jButton7.setEnabled(false);
 
         jButton8.setText("FIN DEL JUEGO VOLUNTARIO");
+        jButton8.setEnabled(false);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -156,6 +200,50 @@ public class JuegoFrame extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+        // TODO add your handling code here:
+        if(this.jTextField5.getText()!=null){
+            this.myjugador.setNombre(this.jTextField5.getText());
+            this.jButton5.setEnabled(false);
+            this.jButton1.setEnabled(true);
+            this.jButton2.setEnabled(true);
+            this.jButton3.setEnabled(true);
+            this.jButton4.setEnabled(true);
+            this.jButton8.setEnabled(true);
+            this.jButton7.setEnabled(true);
+            this.jTextField5.setEditable(false);
+            this.jTextField5.setText("Esta jugando "+this.jTextField5.getText());
+            preg=new Pregunta ();
+            try {
+                preg.buscarPregunta(this.myjuego.getRonda());  
+                this.jButton5.setEnabled(false);
+                this.jButton6.setEnabled(true);
+                
+            } catch (SQLException ex) {
+                Logger.getLogger(JuegoFrame.class.getName()).log(Level.SEVERE, null, ex);
+            }
+           
+            
+        }
+                
+    }//GEN-LAST:event_jButton5ActionPerformed
+
+    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+        this.opc = new Opciones();
+        try {           
+            this.opc.consultarRespuestas(this.preg.getIdPregunta());
+        } catch (SQLException ex) {
+            Logger.getLogger(JuegoFrame.class.getName()).log(Level.SEVERE, null, ex);
+        }
+            this.jTextArea1.setText(preg.getEnunciado());
+            this.jTextField1.setText(opc.getRespuesta(0));
+            this.jTextField2.setText(opc.getRespuesta(1));
+            this.jTextField3.setText(opc.getRespuesta(2));
+            this.jTextField4.setText(opc.getRespuesta(3));
+            
+        
+    }//GEN-LAST:event_jButton6ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -200,6 +288,7 @@ public class JuegoFrame extends javax.swing.JFrame {
     private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton7;
     private javax.swing.JButton jButton8;
+    private javax.swing.JButton jButton9;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

@@ -33,6 +33,12 @@ public class Pregunta {
         Conexion conect= new Conexion();
         conect.crearConexion();
         conect.setSentenciaSql(sentSql);
+         
+        sentSql = "SELECT MAX (id) FROM pregunta;";
+        conect= new Conexion();
+        conect.crearConexion();
+        this.idPregunta= Integer.parseInt(conect.consultarSql(sentSql, 1)); ;
+        
     }
     
     public void buscarPregunta(int categ) throws SQLException{     
